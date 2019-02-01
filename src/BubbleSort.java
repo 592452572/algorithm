@@ -1,7 +1,6 @@
-public class BubbleSort {
+public class BubbleSort extends BaseClass{
 
     public static void main(String[] args) {
-        int[] arr = new int[]{56, 78, 12, 3, 6, 98};
         printArr(arr);
         bubbleSort(arr);
         printArr(arr);
@@ -17,12 +16,5 @@ public class BubbleSort {
                 }
             }
         }
-    }
-
-    public static void printArr(int[] arr) {
-        for (int item : arr) {
-            System.out.print(item+" ");
-        }
-        System.out.println();
     }
 }
