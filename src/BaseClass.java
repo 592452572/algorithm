@@ -1,6 +1,6 @@
 public class BaseClass {
 
-    public static int[] arr = new int[]{56, 78, 12, 3, 6, 98};
+    public static int[] arr = new int[]{56, 78, 12, 3, 6, 98, 78, 64};
 
 
     public static void printArr(int[] arr) {
