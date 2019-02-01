@@ -2,6 +2,10 @@ public class ShellSort extends BaseClass {
 
     public static void main(String[] args) {
 
+        printArr(arr);
+        shellSort(arr, 2);
+        printArr(arr);
+
     }
 
     /**
@@ -16,7 +20,7 @@ public class ShellSort extends BaseClass {
             for (int i = jumpCount; i < arr.length; i++) {
                 int j;
                 int temp = arr[i];
-                for (j = i - jumpCount; j >= 0; j--) {
+                for (j = i - jumpCount; j >= 0; j-=jumpCount) {
                     if (temp < arr[j]) {
                         arr[j+jumpCount] = arr[j];
                     } else {
