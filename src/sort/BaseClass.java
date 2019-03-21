@@ -1,3 +1,5 @@
+package sort;
+
 public class BaseClass {
 
     public static int[] arr = new int[]{56, 78, 12, 3, 6, 98, 78, 64};

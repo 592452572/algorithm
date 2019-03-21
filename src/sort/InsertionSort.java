@@ -1,3 +1,5 @@
+package sort;
+
 public class InsertionSort extends BaseClass {
 
     public static void main(String[] args) {

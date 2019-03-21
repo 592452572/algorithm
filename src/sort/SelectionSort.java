@@ -1,3 +1,5 @@
+package sort;
+
 public class SelectionSort extends BaseClass{
 
     public static void main(String[] args) {
