@@ -33,7 +33,7 @@ public class NumberAdd {
     }
 
     /**
-     * 题意与上题一致，但是又正数负数，0
+     * 题意与上题一致，但是又正数负数，0   sum[index2]-sum[index1]
      */
     public static int func2(int arr[], int k) {
         Map<Integer, Integer> hm = new HashMap<>();
@@ -59,5 +59,35 @@ public class NumberAdd {
             }
         }
         return maxNum;
+    }
+
+    /**
+     * 加起来小于一个数的最长数组,算出以每个元素为起点最小值
+     */
+    public static int func3(int[] arr, int k) {
+        int[] minSum = new int[arr.length];
+        int maxLength = 0;
+        int sum = 0;
+        minSum[arr.length-1] = arr[arr.length-1];
+        for (int i = arr.length-2; i >= 0; i--) {
+            if (minSum[i+1] < 0) {
+                minSum[i] = arr[i] + minSum[i+1];
+            } else {
+                minSum[i] = arr[i];
+            }
+        }
+        int i = 0;
+        int j = 0;
+        while (j < arr.length) {
+            if (sum + minSum[j] < k) {
+                sum += minSum[j];
+                j++;
+                maxLength = Math.max(maxLength,j-i+1);
+            } else {
+                sum -= arr[i];
+                i++;
+            }
+        }
+        return maxLength;
     }
 }
