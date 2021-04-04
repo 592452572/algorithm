@@ -1,4 +1,4 @@
-package dp;
+package dp.secondDay;
 
 import java.lang.annotation.Annotation;
 import java.util.HashMap;
@@ -8,8 +8,12 @@ import java.util.Stack;
 public class LightHouse {
 
     /**
-     * 灯塔问题，两个灯塔之间，如果其中的灯塔高度都小于两边的灯塔，则两座灯塔可以看见，求有多少对可以看见的灯塔
-     * 使用单调栈
+     * 环状灯塔问题，两个灯塔之间，如果其中两座灯塔高度都大于等于其中的灯塔，则两座灯塔可以看见，求有多少对可以看见的灯塔
+     * 思路1：无重复元素，小的灯塔找高的灯塔，排除最高和次高，其余都能找到2
+     * 重复元素
+     * 使用单调栈：
+     *  单调栈：栈底的数大于栈顶的数，入栈遇到新数，则出栈，直至小于栈顶的数
+     *  小的灯塔找高的灯塔，栈底需最大值，否则可能出现未结算情况
      */
 
     public static int func1(int arr[]) {
