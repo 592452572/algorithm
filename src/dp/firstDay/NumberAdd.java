@@ -1,4 +1,4 @@
-package src.dp;
+package dp.firstDay;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,7 +10,7 @@ public class NumberAdd {
 
     /**
      * 从数组中找出相加为某个数的字串，值全是正数
-     *
+     * 思路：两个指针，计算指针内数的和
      */
     public static int fun1(int[] arr, int k) {
         int s = 0;
@@ -33,7 +33,11 @@ public class NumberAdd {
     }
 
     /**
-     * 题意与上题一致，但是又正数负数，0   sum[index2]-sum[index1]
+     * 题意与上题一致，但是又正数负数，0
+     * 思路：sum[index2]-sum[index1]
+     *       记录以每个位置作为结尾的累加和 |a| +|b| = 100, a = 30,则b = 70
+     *       需设置arr[0] = -1
+     *       构造一张表 map<sum, index> == (arr[sum] = index)
      */
     public static int func2(int arr[], int k) {
         Map<Integer, Integer> hm = new HashMap<>();
@@ -80,7 +84,7 @@ public class NumberAdd {
         int j = 0;
         while (j < arr.length) {
             if (sum + minSum[j] < k) {
-                sum += minSum[j];
+                sum += arr[j];
                 j++;
                 maxLength = Math.max(maxLength,j-i+1);
             } else {
