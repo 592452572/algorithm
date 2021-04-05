@@ -7,7 +7,7 @@ import java.util.Queue;
 public class ArrGTValue {
 
     /**
-     * 给定一个数组，求有多少个子数组满足max(arr[i...j])-min(arr[i...j]) <= k
+     * 给定一个(arr[i...j])-min(arr[i...j]) <= k
      * 思路： 使用两个双向队列，一个中存最大的值在前面，另一个存最小的值在前面,以某个点为开头
      */
     public static int getResult(int[] arr, int k) {

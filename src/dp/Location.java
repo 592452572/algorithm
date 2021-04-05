@@ -17,7 +17,7 @@ public class Location {
         if (t == n-1) {
             return func1(n, s, k-1, n-2);
         }
-        return func1(n, s, k-1, t+1)+func1(n, s, k-1, t+1);+
+        return func1(n, s, k-1, t+1)+func1(n, s, k-1, t-1);
     }
 
     //动态规划
