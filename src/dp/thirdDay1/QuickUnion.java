@@ -1,4 +1,4 @@
-package dp;
+package dp.thirdDay1;
 
 import java.util.HashMap;
 import java.util.LinkedList;
