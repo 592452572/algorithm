@@ -1,11 +1,24 @@
-package dp;
+package src.dp.thirdDay;
 
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-//运用并查集，找出树的公共祖先
+/**
+ * 运用并查集，找出树的公共祖先
+ * 思路：
+ *  二叉树的便利实际便是三次递归调用 f(){curNod;f(curNod.left);f(curNod.right);}
+ *  1.给定三个map;
+ *      查询任务qmap（{a,b}{b,a}）
+ *      并查集 bmap
+ *      并查集代表节点的祖先节点 zmap
+ *  2.便利时判断qmap中的值是否已经记录到bmap中，如果没，则跳过此次任务
+ *  3.如果有，则从bmap中找出代表节点（结构需打平）
+ *  4.通过zmap中获取代表节点的祖先节点，则是共同祖先
+ *
+ */
+
 public class QuickUnion {
 
     //代表节点
