@@ -1,4 +1,4 @@
-package dp;
+package dp.fifthDay;
 
 import java.util.Stack;
 
@@ -7,6 +7,7 @@ public class MaxMatrix {
     /**
      * 一个二维数组有0和1组成，求由1组成的最大矩阵
      * 思路：1，求以每一行为底的直方图  2，使用小单调栈
+     * 有重复值，让先入的重复值出栈，后入的值入栈，并马上结算先入的值。原因：总有一个的重复值结算的结果是对的！
      */
     public static int getMaxMatrixValue(int[][] arr) {
         int[] a = new int[arr[0].length];

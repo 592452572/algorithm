@@ -1,10 +1,13 @@
-package src.dp;
+package src.dp.sixthDay;
 
 public class Location {
     /**
      * 问题描述：一个机器人起始在某个位置，一分钟可以向左或者向右移动一次，求K分钟后在T位置的次数
+     * 思路：(k,t) = (K-1, t+1)+(K-1, t-1)
+     * 根据代码的条件可以优化成动态规划
      */
     public static int func1(int n, int s, int k, int t) {
+        //n:格子数 s开始位置 k分钟 t目标位置
         if (n < 2 || s < 0 || s >= n || k < 1 || t < 0 || t >= n) {
             return 0;
         }
@@ -39,7 +42,7 @@ public class Location {
         }
         return arr[k-1][t];
     }
-    //优化动态规划，两个数组
+    //优化动态规划，两个数组，因为最后一行的数据仅依赖上一行的数据，两个数组可以交替滚动
     public static int func3(int n, int s, int k, int t) {
         int[] a = new int[n];
         int[] b = new int[n];
@@ -72,7 +75,7 @@ public class Location {
         }
     }
 
-    //优化：使用一个变量来记录
+    //优化：一个数组+使用一个变量来记录，因为(k,t) = (K-1, t+1)+(K-1, t-1) ，所以需一个变量来储存之前改变的值
 
     public static int func4(int n, int s, int k, int t) {
         int[] a = new int[n];
