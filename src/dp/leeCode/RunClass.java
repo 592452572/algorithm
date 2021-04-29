@@ -3,8 +3,11 @@ package dp.leeCode;
 public class RunClass {
     public static void main(String[] args) {
 
-
-        System.out.println(isMatch("ab", ".*c"));
+        int[] arr = new int[3];
+        arr[0] = 1;
+        arr[1] = 3;
+        arr[2] = 2;
+        nextPermutation(arr);
     }
 
     /**
@@ -52,5 +55,74 @@ public class RunClass {
             }
         }
         return dp[s.length()-1][p.length()-1] == 1?true:false;
+    }
+
+    public static void nextPermutation(int[] nums) {
+        boolean flag = false;
+        if (nums.length>=1) {
+            for (int i = nums.length-1; i>=0; i--) {
+                for (int j = i-1; j>=0; j--) {
+                    if (nums[j] < nums[i]) {
+                        flag = true;
+                        break;
+                    }
+                }
+                if (flag) {
+                    break;
+                }
+            }
+            if (!flag) {
+                int s = 0;
+                int e = nums.length-1;
+                while (s < e) {
+                    int t = nums[s];
+                    nums[s] = nums[e];
+                    nums[e] = t;
+                    s++;
+                    e--;
+                }
+
+            } else {
+                dp(nums, 0, nums.length-1);
+            }
+            System.out.println(nums);
+        }
+    }
+    public static void dp(int[] nums, int start, int end) {
+        int s = start;
+        int e = end;
+        boolean flag = false;
+        for (int i = end; i>=start; i--) {
+            for (int j = i-1; j>=start; j--) {
+                if (nums[j] < nums[i]) {
+                    int t = nums[j];
+                    nums[j] = nums[i];
+                    nums[i] = t;
+                    s = j;
+                    e = end;
+                    flag = true;
+                    break;
+                }
+            }
+            if (flag) {
+                break;
+            }
+        }
+
+        dp1(nums, s+1, e);
+
+
+    }
+
+    public static void dp1(int[] nums, int start, int end) {
+        for (int i = start; i <= end; i++) {
+            for (int j = start; j <= (end-1)-i+start; j++) {
+                if (nums[j] > nums[j+1]) {
+                    int t = nums[j];
+                    nums[j] = nums[j+1];
+                    nums[j+1] = t;
+                }
+            }
+        }
     }
 }

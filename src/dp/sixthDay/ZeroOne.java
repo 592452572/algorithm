@@ -31,6 +31,10 @@ public class ZeroOne {
     /**
      * 问题描述：一个数列由01组成，求01串0和1数量相同最长的长度
      * 思路：将0变成-1相加
+     * 一种巧妙的解法：定义一个数据temp[N]， temp[i]表示从num[0...i]中 num_of_0 - num_of_1，0的个数与1的个数的差那么如果num[i+1] ~ num[j]是符合条件的子串
+     * ，一定有 temp[i] == temp[j]，因为中间的部分0、1个数相等，相减等于0。只需要扫一遍num[N]就能把temp[N]构造出来了。这样问题就转换成了求距离最远的一对数，使得temp[i] == temp[j]，
+     * 因为temp[i]的范围一定是[-N,N]，-N到N的范围所对应的从num[0]开始的子串的结尾下标i都存起来，这样每扫到temp[i]，查数就行了。
+
      */
     public static int func2(int[] arr) {
         int maxNum = 0;

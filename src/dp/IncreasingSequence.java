@@ -3,7 +3,7 @@ package src.dp;
 public class IncreasingSequence {
     /**
      * 问题描述：求一个数组中递增子序列的最长长度
-     * 思路：使用一个数组记录以每个节点为结尾的递增数组长度，使用一个数组记录当递增数组长度为i时，数值为多少
+     * 思路：使用一个数组记录以每个节点为结尾的递增数组长度，使用一个数组记录当递增数组长度为i时，数值为多少。替换掉刚好大于他的数，若没有，则在结尾加
      */
     public static int func(int[] arr) {
         int[] lengthArr = new int[arr.length];

@@ -2,7 +2,7 @@ package src.dp.ninthDay;
 
 public class ArrDp {
     /**
-     * 问题描述：给定一个数组，求这个数组中子数组通过自由组装，能组成的数
+     * 问题描述：给定一个数组，求这个数组中子数组通过自由组装，能组成(相加)的数
      * 思路：使用dp
      * 给定一个dp[i][j] 表示0至i-1这个范围，能否得到j这个数
      * 当dp[i+1][j]时，只需将dp[i][j]为true的值复制。为false的值用value = j-arr[i+1],判断dp[i][value]是否为true。是的话可以直接设为true
